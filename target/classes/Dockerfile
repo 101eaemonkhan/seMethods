@@ -1,6 +1,6 @@
 # Use the latest MySQL image
 FROM mysql
-# Set the working directoryy
+# Set the working directory
 WORKDIR /tmp
 # Copy all the files to the working directory of the container
 COPY test_db/*.sql /tmp/
