@@ -8,7 +8,7 @@ public class App
     {
         try
         {
-            // Load Database driver
+            // Load Database driverr
             Class.forName("com.mysql.cj.jdbc.Driver");
         }
         catch (ClassNotFoundException e)
