@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.napier.sem</groupId>
   <artifactId>seMethods</artifactId>
-  <version>0.1.0.2</version>
+  <version>0.1.0.3</version>
   <name>Archetype - seMethods</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -24,6 +24,12 @@
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
+
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.18</version>
     </dependency>
   </dependencies>
 
