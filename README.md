@@ -4,3 +4,4 @@
 [![Releases](https://img.shields.io/github/release/101eaemonkhan/App/develop=main)](https://github.com/101eaemonkhan/App/releases)
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/101eaemonkhan/seMethods/main.yml?develop=main)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Releases](https://img.shields.io/github/release/101eaemonkhan/sem/all.svg?style=flat-square)](https://github.com/101eaemonkhan/sem/releases)
