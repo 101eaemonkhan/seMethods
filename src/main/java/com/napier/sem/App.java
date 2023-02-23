@@ -417,6 +417,8 @@ public class App {
         ArrayList<Employee> salesSalaries = a.getSalariesByDepartment(d);
         //use the printSalaries function on this array
         a.printSalaries(salesSalaries);
+       ArrayList<Employee> salariesTable;
+
 
         //test printing of employee info using refactored code
         a.displayEmployee(salesSalaries.get(20));
