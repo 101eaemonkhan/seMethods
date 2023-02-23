@@ -79,14 +79,14 @@ public class App {
             while (rset.next()) {
                 Employee emp = new Employee();
                 //variable to store emp_no for the manager
-//                int managerID = rset.getInt("dept_manager.emp_no");
+           int managerID = rset.getInt("dept_manager.emp_no");
                 emp.emp_no = rset.getInt("employees.emp_no");
                 emp.first_name = rset.getString("employees.first_name");
                 emp.last_name = rset.getString("employees.last_name");
                 emp.salary = rset.getInt("salaries.salary");
                 emp.title = rset.getString("titles.title");
-//                emp.manager = getEmployee(managerID);
-//                emp.dept = getDepartment(rset.getString("departments.dept_name"));
+            emp.manager = getEmployee(managerID);
+              emp.dept = getDepartment(rset.getString("departments.dept_name"));
                 employees.add(emp);
             }
 
@@ -218,7 +218,7 @@ public class App {
                 emp.salary = rset.getInt("salary");
 
                 emp.dept = getDepartment(deptName);
-//                emp.manager = getEmployeeManagerID(managerID);
+//           emp.manager = getEmployeeManagerID(managerID);
 
                 return emp;
             } else
