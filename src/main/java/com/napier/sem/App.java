@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class App {
     /**
-     *
      * Connection to MySQL database.
      */
     private Connection con = null;
@@ -79,14 +78,14 @@ public class App {
             while (rset.next()) {
                 Employee emp = new Employee();
                 //variable to store emp_no for the manager
-           int managerID = rset.getInt("dept_manager.emp_no");
+//                int managerID = rset.getInt("dept_manager.emp_no");
                 emp.emp_no = rset.getInt("employees.emp_no");
                 emp.first_name = rset.getString("employees.first_name");
                 emp.last_name = rset.getString("employees.last_name");
                 emp.salary = rset.getInt("salaries.salary");
                 emp.title = rset.getString("titles.title");
-            emp.manager = getEmployee(managerID);
-              emp.dept = getDepartment(rset.getString("departments.dept_name"));
+//                emp.manager = getEmployee(managerID);
+//                emp.dept = getDepartment(rset.getString("departments.dept_name"));
                 employees.add(emp);
             }
 
@@ -218,7 +217,7 @@ public class App {
                 emp.salary = rset.getInt("salary");
 
                 emp.dept = getDepartment(deptName);
-//           emp.manager = getEmployeeManagerID(managerID);
+//                emp.manager = getEmployeeManagerID(managerID);
 
                 return emp;
             } else
@@ -404,7 +403,7 @@ public class App {
         // Get Employee
         Employee emp = a.getEmployee(255530);
         // Display results
-//        a.displayEmployee(emp);
+        a.displayEmployee(emp);
 
         ArrayList<Employee> salaries = a.getAllSalaries();
         ArrayList<Employee> engineerSalaries = a.getSalariesByTitle("Engineer");
@@ -417,8 +416,6 @@ public class App {
         ArrayList<Employee> salesSalaries = a.getSalariesByDepartment(d);
         //use the printSalaries function on this array
         a.printSalaries(salesSalaries);
-       ArrayList<Employee> salariesTable;
-
 
         //test printing of employee info using refactored code
         a.displayEmployee(salesSalaries.get(20));
