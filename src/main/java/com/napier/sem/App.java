@@ -1,4 +1,5 @@
 package com.napier.sem;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -402,7 +403,7 @@ public class App {
         // Get Employee
         Employee emp = a.getEmployee(255530);
         // Display results
-        a.displayEmployee(emp);
+//        a.displayEmployee(emp);
 
         ArrayList<Employee> salaries = a.getAllSalaries();
         ArrayList<Employee> engineerSalaries = a.getSalariesByTitle("Engineer");
