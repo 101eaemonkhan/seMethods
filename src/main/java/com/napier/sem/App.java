@@ -109,6 +109,7 @@ public class App {
         }
     }
 
+
     //function to get employee's department name base on their ID
     public String getEmployeeDepartmentName(int emp_no){
         try {
