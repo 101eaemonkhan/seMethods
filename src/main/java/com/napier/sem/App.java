@@ -243,6 +243,23 @@ public class App {
             );
         }
     }
+    public void addEmployee(Employee emp)
+    {
+        try
+        {
+            Statement stmt = con.createStatement();
+            String strUpdate =
+                    "INSERT INTO employees (emp_no, first_name, last_name, birth_date, gender, hire_date) " +
+                            "VALUES (" + emp.emp_no + ", '" + emp.first_name + "', '" + emp.last_name + "', " +
+                            "'9999-01-01', 'M', '9999-01-01')";
+            stmt.execute(strUpdate);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to add employee");
+        }
+    }
 
     public ArrayList<Employee> getSalariesByTitle(String title) {
         try {

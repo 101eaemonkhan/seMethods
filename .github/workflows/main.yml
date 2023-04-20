@@ -34,15 +34,21 @@ jobs:
         with:
           java-version: '19'
           distribution: 'adopt'
-      - name: Integration Tests
+      - name: Integration Tests and CodeCov
         run: |
           docker build -t database ./db 
-          docker run --name employees -dp 8080:80000 database
-          mvn -Dtest=com.napier.sem.AppIntegrationTest test
+          docker run --name employees -dp 8080:8000 database
+          mvn -Dtest=com.napier.sem.AppIntegrationTest test          
           docker stop employees
           docker rm employees
-          docker image rm database                    
-
+          docker image rm database
+      - name: CodeCov
+        uses: codecov/codecov-action@v2
+        with:
+          # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          directory: ./target/site/jacoco
+          flags: Integration Tests # optional
+          verbose: true # optional (default = false)
   build:
     name: Build and Start Using docker-compose
     runs-on: ubuntu-20.04
@@ -59,4 +65,4 @@ jobs:
       - name: Package and Run docker compose
         run: |
           mvn package -DskipTests
-          docker-compose up --abort-on-container-exit
+          docker-compose up --abort-on-container-exit   
