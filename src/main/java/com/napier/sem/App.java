@@ -259,7 +259,6 @@ public class App {
             System.out.println(e.getMessage());
             System.out.println("Failed to add employee");
         }
-
     }
 
     public ArrayList<Employee> getSalariesByTitle(String title) {

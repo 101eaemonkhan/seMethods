@@ -32,7 +32,7 @@ jobs:
       - name: Set up JDK 19
         uses: actions/setup-java@v2
         with:
-          java-version:  '19'
+          java-version: '19'
           distribution: 'adopt'
       - name: Integration Tests
         run: |
