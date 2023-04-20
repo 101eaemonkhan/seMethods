@@ -34,7 +34,7 @@ public class AppIntegrationTest
         Employee emp = app.getEmployee(255530);
         assertEquals(emp.emp_no, 255530);
         assertEquals(emp.salary, "20000 ");
-        assertEquals(emp.dept, "enginee ");
+        assertEquals(emp.dept, "enginee");
     }
     @Test
     void testAddEmployee()
