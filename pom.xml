@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.napier.sem</groupId>
-  <artifactId>seMethods</artifactId>
+  <artifactId>sem_employees</artifactId>
   <version>0.1.0.4</version>
   <name>Archetype - seMethods</name>
   <url>http://maven.apache.org</url>
@@ -69,6 +69,13 @@
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <!-- skip building the default-jar-->
+            <phase>none</phase>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
