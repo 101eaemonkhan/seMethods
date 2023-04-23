@@ -42,7 +42,6 @@ jobs:
           docker stop employees
           docker rm employees
           docker image rm database                    
-
           
   build:
     name: Build Run in Docker and Deploy Release
@@ -68,4 +67,3 @@ jobs:
           automatic_release_tag: "latest"
           files: |
             ./target/*.jar 
-
