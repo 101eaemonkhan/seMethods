@@ -31,7 +31,7 @@ jobs:
           submodules: recursive
       - name: Set up JDK 19
         uses: actions/setup-java@v2
-        with:
+        with: 
           java-version:  '19'
           distribution: 'adopt'
       - name: Integration Tests
@@ -67,5 +67,5 @@ jobs:
           prerelease: false
           automatic_release_tag: "latest"
           files: |
-            ./target/*.jar
+            ./target/*.jar /tmp
 
