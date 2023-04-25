@@ -42,6 +42,7 @@ jobs:
           docker stop employees
           docker rm employees
           docker image rm database                    
+
           
   build:
     name: Build Run in Docker and Deploy Release
@@ -64,6 +65,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          automatic_release_tag: "latest "
+          automatic_release_tag: "latest"
           files: |
             ./target/*.jar 
+
