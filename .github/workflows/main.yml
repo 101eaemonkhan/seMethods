@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - lab08
 jobs:
   UnitTests:
     name: Unit Tests
@@ -20,6 +19,13 @@ jobs:
           distribution: 'adopt'
       - name: Unit Tests
         run: mvn -Dtest=com.napier.sem.AppTest test
+      - name: CodeCov
+        uses: codecov/codecov-action@v2
+        with:
+          # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          directory: ./target/site/jacoco
+          flags: Unit Tests # optional
+          verbose: true # optional (default = false)
 
   IntegrationTests:
     name: Integration Tests
@@ -31,19 +37,24 @@ jobs:
           submodules: recursive
       - name: Set up JDK 19
         uses: actions/setup-java@v2
-        with: 
-          java-version:  '19'
+        with:
+          java-version: '19'
           distribution: 'adopt'
-      - name: Integration Tests
+      - name: Integration Tests and CodeCov
         run: |
           docker build -t database ./db 
-          docker run --name employees -dp 8080:80000 database
-          mvn -Dtest=com.napier.sem.AppIntegrationTest test
+          docker run --name employees -dp 8080:8000 database
+          mvn -Dtest=com.napier.sem.AppIntegrationTest test          
           docker stop employees
           docker rm employees
-          docker image rm database                    
-
-          
+          docker image rm database
+      - name: CodeCov
+        uses: codecov/codecov-action@v2
+        with:
+          # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          directory: ./target/site/jacoco
+          flags: Integration Tests # optional
+          verbose: true # optional (default = false)
   build:
     name: Build Run in Docker and Deploy Release
     runs-on: ubuntu-20.04
@@ -67,5 +78,4 @@ jobs:
           prerelease: false
           automatic_release_tag: "latest"
           files: |
-            ./target/*.jar 
-
+            ./target/*.jar
